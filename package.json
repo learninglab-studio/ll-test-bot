@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./app.js"
   },
+  "bin": {
+    "testbot": "cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/learninglab-studio/ll-test-bot.git"
@@ -23,7 +26,10 @@
   "dependencies": {
     "@slack/bolt": "^3.12.1",
     "airtable": "^0.11.4",
+    "clear": "^0.1.0",
     "dotenv": "^16.0.1",
-    "pdfkit": "^0.13.0"
+    "figlet": "^1.5.2",
+    "pdfkit": "^0.13.0",
+    "yargs": "^17.5.1"
   }
 }

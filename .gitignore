@@ -1,3 +1,6 @@
+_tmp/
+_temp/
+
 # Logs
 logs
 *.log

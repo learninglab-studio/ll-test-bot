@@ -48,3 +48,23 @@ module.exports.addRecord = async function({ baseId, table, record }){
     });
   return airtableResult;
 }
+
+module.exports.getAllWithFields = async ({ baseId, table, fields, view }) => {
+  var base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base(baseId);
+  theRecords = [];
+  let options = {
+    maxRecords: 1000,
+    view: view ? view : "Grid view",
+    fields: fields ? fields : undefined
+  }
+  await base(table).select(options).eachPage(function page(records, next){
+      theRecords.push(...records);
+      next()
+    })
+    // .then(()=>{
+    //   // return(theRecords);
+    // })
+    .catch(err=>{console.error(err); return})
+  // console.log(JSON.stringify(theRecords))
+  return theRecords;
+}

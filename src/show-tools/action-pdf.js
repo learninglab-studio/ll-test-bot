@@ -23,12 +23,13 @@ module.exports = async ({ command, client, say, ack }) => {
             initial_comment: ("new photo initial comment"),
             filename: "filename here",
             channels: command.user_id,
-            title: "new still posted"
+            title: "new still posted",
+            // thread_ts: ts
         })
         yellow(divider, 'uploadResult', divider)
         magenta(uploadResult)
     } catch (error) {
-        red(error)
+        red('action-pdf error', error)
     }
 }
 
